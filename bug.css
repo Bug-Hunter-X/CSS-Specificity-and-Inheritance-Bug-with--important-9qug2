@@ -1,0 +1,24 @@
+The following CSS code snippet demonstrates an uncommon error related to specificity and inheritance:
+
+```css
+.parent {
+  color: blue;
+}
+
+.child {
+  color: red !important;
+}
+
+.child .grandchild {
+  color: green;
+}
+
+/* HTML Structure */
+<div class="parent">
+  <div class="child">
+    <span class="grandchild"></span>
+  </div>
+</div>
+```
+
+The `!important` declaration on `.child` overrides the specificity of `.parent`, resulting in the `child` element having red text.  However, the `grandchild` inherits the `color: blue` from its parent. This unexpected inheritance happens because the `!important` rule only directly affects the `.child` element, and does not explicitly override inheritance for its descendants.
