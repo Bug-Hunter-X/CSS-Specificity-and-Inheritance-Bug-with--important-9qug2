@@ -1,0 +1,17 @@
+To fix the issue, explicitly target the grandchild element and set its color with a higher specificity or another !important declaration.
+
+```css
+.parent {
+  color: blue;
+}
+
+.child {
+  color: red !important;
+}
+
+.child .grandchild {
+  color: green !important; /* Solution: Add !important to grandchild */
+}
+```
+
+This approach removes the unexpected inheritance and ensures that the `grandchild` element receives the intended green color.
